@@ -1,0 +1,561 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amssymb}
+\usepackage{ctex}
+\usepackage{amsmath,ntheorem,lmodern,bm}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+\usepackage{color,framed}
+%\usepackage{hyperref}
+%\setCJKmainfont[BoldFont={FZHei-B01}]{FZShuSong-Z01}
+%\setCJKfamilyfont{song}{FZShuSong-Z01}
+%\setCJKfamilyfont{hei}{FZShuSong-Z01}
+%\setCJKfamilyfont{heiti}{FZShuSong-Z01}
+%\setCJKfamilyfont{heilight}{FZShuSong-Z01}
+%\setCJKfamilyfont{title}{FZShuSong-Z01}
+%\setCJKfamilyfont{songbold}{FZShuSong-Z01}
+%\hypersetup{pdfpagemode=FullScreen}
+\colorlet{shadecolor}{gray!10}
+\geometry{a4paper,left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+\usepackage{ifxetex,ifluatex}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+    \newcommand{\euro}{€}
+  \else
+    \usepackage[utf8]{inputenc}
+    \usepackage{eurosym}
+  \fi
+\fi
+\usepackage{color}
+\usepackage{fancyvrb}
+%\DefineShortVerb[commandchars=\\\{\}]{\|}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{\begin{shaded}
+}{\end{shaded}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex,
+              colorlinks=true,
+              linkcolor=blue]{hyperref}
+\else
+  \usepackage[unicode=true,
+              colorlinks=true,
+              linkcolor=blue]{hyperref}
+\fi
+\hypersetup{breaklinks=true, pdfborder={0 0 0}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%\EndDefineVerbatimEnvironment{Highlighting}
+\newcommand{\code}[1]{\ \tcbox[on line,
+arc=3pt,outer arc=3pt,colback=pink!30,
+boxsep=0pt,left=3pt,right=3pt,top=3pt,bottom=3pt,
+boxrule=0pt]{\ttfamily\color{purple}{#1}}\ }
+
+%\title{概率论第一次作业}
+%\date{\today}
+
+\begin{document}
+
+
+%\section{\LaTeX 直播之七  - 数学公式入门基础配套资料}\label{latex-ux516cux5f0f}
+
+%\section{\centerline {概率论第一次作业}}
+%\section{\centerline{概率论第一次作业}}
+%\section{概率论第一次作业}
+{\centering\section*{概率论第一次作业}}
+%\subsection{版本号: V1.6.6}\label{ux7248ux672cux53f7-v1.6.6}
+%
+%\textbf{编者} \\
+%\subsection
+\text{\rightline {黄之豪}} \\
+\text{\rightline {20110980005}} \\
+\text{\rightline {2020年10月16日}} \\
+
+\subsection{作业题号}
+\textbf{应坚刚教授\ 概率论(第二版)}：\\
+本次作业一共10题：\\
+P48 2, 3, 6, 8, 10, 12, 20, 21, 23, 24
+
+%\textbf{编者} \\
+%中山大学\ 易鹏\ \\
+%华南理工大学\ 关舒文
+\subsection{第2题}
+解：\\
+\textbf{下面的定义解读和灰色框是本题关键} \\
+由定义 $$ f^{-1}(\mathscr{B}):=\{f^{-1}(B)\colon B\in\mathscr{B}	\} $$ 
+	即$ f^{-1}(B)\in\mathscr{B}\iff B\in\mathscr{B} $
+
+
+\subsubsection{(1)补运算}
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+\begin{shaded}
+
+	要证：\\
+	给定条件： $ B\in\mathscr{B} $, 则$ B^{\mathrm{c}}\in\mathscr{B} $ \\
+	能否得出：若$ f^{-1}(B)\in f^{-1}(\mathscr{B}) $,  
+	则 $ {(f^{-1}(B))}^{\mathrm{c}} \in f^{-1}(\mathscr{B}) $
+
+\end{shaded}
+
+	由定义：
+	\[ 
+	B\in\mathscr{B} \iff f^{-1}(B)\in f^{-1}(\mathscr{B}) 
+	\tag{1} 
+	\] 
+	\[ 
+	B^{c}\in\mathscr{B} \iff f^{-1}(B^c)\in f^{-1}(\mathscr{B})
+	\tag{2} 
+	\] 
+	
+	由$ \mathscr{B} $对补运算封闭:  
+	\[ 
+	B\in\mathscr{B} \Rightarrow B^{c}\in\mathscr{B}  
+	\tag{3} 
+	\]
+
+	综合(1)(2)(3)
+	\[ 
+	f^{-1}(B)\in f^{-1}(\mathscr{B})  \Rightarrow f^{-1}(B^c)\in f^{-1}(\mathscr{B})
+	\]
+	由逆运算与补集交换性(课本P40定理2.3.1(2)): $  f^{-1}(B^c)={(f^{-1}(B))}^c  $ , 可得：
+	\[ 
+	f^{-1}(B)\in f^{-1}(\mathscr{B})  \Rightarrow {(f^{-1}(B))}^c \in f^{-1}(\mathscr{B})
+	\]
+
+\subsubsection{(2)并运算}
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+\begin{shaded}
+	
+	要证：\\
+	给定条件： $ A,B\in\mathscr{B} $, 则$ A \cup B \in\mathscr{B} $ \\
+	能否得出：若$ f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B}) $,  
+	则 $ f^{-1}(A) \cup f^{-1}(B) \in f^{-1}(\mathscr{B}) $
+	
+\end{shaded}
+
+由定义：
+\[ 
+A,B\in\mathscr{B} \iff f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B}) 
+\tag{1} 
+\] 
+\[ 
+A \cup B \in\mathscr{B} \iff f^{-1}(A \cup B) \in f^{-1}(\mathscr{B})
+\tag{2} 
+\] 
+
+由$ \mathscr{B} $对并运算封闭:  
+\[ 
+A,B\in\mathscr{B} \Rightarrow A \cup B \in\mathscr{B}
+\tag{3} 
+\]
+
+综合(1)(2)(3)
+\[ 
+f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B})  \Rightarrow f^{-1}(A \cup B) \in f^{-1}(\mathscr{B})
+\]
+由逆运算与并集交换性(课本P40定理2.3.1(3)): $  f^{-1}(A \cup B)=f^{-1}(A) \cup f^{-1}(B)  $ , 可得：
+\[ 
+f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B})  \Rightarrow f^{-1}(A) \cup f^{-1}(B) \in f^{-1}(\mathscr{B})
+\]
+
+\subsubsection{(3)交运算}
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+\begin{shaded}
+	
+	要证：\\
+	给定条件： $ A,B\in\mathscr{B} $, 则$ A \cap B \in\mathscr{B} $ \\
+	能否得出：若$ f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B}) $,  
+	则 $ f^{-1}(A) \cap f^{-1}(B) \in f^{-1}(\mathscr{B}) $
+	
+\end{shaded}
+
+由定义：
+\[ 
+A,B\in\mathscr{B} \iff f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B}) 
+\tag{1}
+\] 
+\[ 
+A \cap B \in\mathscr{B} \iff f^{-1}(A \cap B) \in f^{-1}(\mathscr{B})
+\tag{2} 
+\] 
+
+由$ \mathscr{B} $对交运算封闭:  
+\[ 
+A,B\in\mathscr{B} \Rightarrow A \cap B \in\mathscr{B}
+\tag{3} 
+\]
+
+综合(1)(2)(3)
+\[ 
+f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B})  \Rightarrow f^{-1}(A \cap B) \in f^{-1}(\mathscr{B})
+\]
+由逆运算与交集交换性(课本P40定理2.3.1(3)): $  f^{-1}(A \cap B)=f^{-1}(A) \cap f^{-1}(B)  $ , 可得：
+\[ 
+f^{-1}(A),f^{-1}(B)\in f^{-1}(\mathscr{B})  \Rightarrow f^{-1}(A) \cap f^{-1}(B) \in f^{-1}(\mathscr{B})
+\]
+
+
+\subsection{第3题}
+解：\\
+\textbf{与2解题几乎一致} \\
+由定义 $$ \mathscr{B}:=\{B \subset Y \colon  f^{-1}(B) \in \mathscr{A}	\} $$ 
+即$ B\in\mathscr{B}\iff f^{-1}(B) \in \mathscr{A} $
+
+
+\subsubsection{(1)补运算}
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+\begin{shaded}
+	
+	要证：\\
+	给定条件： $ f^{-1}(B)\in\mathscr{A} $, 则$ {(f^{-1}(B))}^c\in\mathscr{A} $ \\
+	能否得出：若$ B\in \mathscr{B} $,  
+	则 $ B^c \in \mathscr{B} $
+	
+\end{shaded}
+
+由定义：
+\[ 
+f^{-1}(B)\in \mathscr{A} \iff  B\in\mathscr{B} 
+\tag{1} 
+\] 
+\[ 
+f^{-1}(B^c)\in \mathscr{A} \iff B^{c}\in\mathscr{B}
+\tag{2} 
+\] 
+
+由$ \mathscr{A} $对补运算封闭:  
+\[ 
+f^{-1}(B)\in\mathscr{A} \Rightarrow {(f^{-1}(B))}^c\in\mathscr{A}  
+\tag{3} 
+\]
+
+综合(1)(2)(3)
+\[ 
+B\in\mathscr{B} \iff f^{-1}(B)\in \mathscr{A}  \Rightarrow {(f^{-1}(B))}^c\in\mathscr{A}
+\]
+由逆运算与补集交换性(课本P40定理2.3.1(2)): $  f^{-1}(B^c)={(f^{-1}(B))}^c  $ , 再由(2)可得：
+\[ 
+B\in\mathscr{B}  \Rightarrow  B^{c}\in\mathscr{B}
+\]
+
+\subsubsection{(2)并运算}
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+\begin{shaded}
+	要证：\\
+	给定条件： $ f^{-1}(A),f^{-1}(B)\in\mathscr{A} $, 则$ f^{-1}(A) \cup f^{-1}(B) \in\mathscr{A} $ \\
+	能否得出：若$ A,B\in \mathscr{B} $,  
+	则 $ A \cup B \in \mathscr{B} $
+	
+	
+\end{shaded}
+
+由定义：
+\[ 
+f^{-1}(A),f^{-1}(B)\in\mathscr{A} \iff A,B\in \mathscr{B}
+\tag{1} 
+\] 
+
+
+由$ \mathscr{A} $对并运算封闭:  
+\[ 
+f^{-1}(A),f^{-1}(B)\in\mathscr{A} \Rightarrow f^{-1}(A) \cup f^{-1}(B) \in\mathscr{A}
+\tag{2} 
+\]
+由逆运算与并集交换性(课本P40定理2.3.1(3)): $  f^{-1}(A \cup B)=f^{-1}(A) \cup f^{-1}(B)  $ , 结合(1)(2)可得：
+\[ 
+A,B\in \mathscr{B} \iff f^{-1}(A),f^{-1}(B)\in\mathscr{A} \Rightarrow f^{-1}(A) \cup f^{-1}(B)=f^{-1}(A \cup B) \in\mathscr{A}
+\]
+
+又由定义：
+\[ 
+A \cup B \in\mathscr{B} \iff f^{-1}(A \cup B) \in f^{-1}(\mathscr{B})
+\]
+得： 
+\[ 
+A,B\in \mathscr{B}  \Rightarrow A \cup B \in \mathscr{B}
+\]
+
+\subsubsection{(3)交运算}
+
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92}
+\begin{shaded}
+	要证：\\
+	给定条件： $ f^{-1}(A),f^{-1}(B)\in\mathscr{A} $, 则$ f^{-1}(A) \cap f^{-1}(B) \in\mathscr{A} $ \\
+	能否得出：若$ A,B\in \mathscr{B} $,  
+	则 $ A \cap B \in \mathscr{B} $
+	
+	
+\end{shaded}
+
+由定义：
+\[ 
+f^{-1}(A),f^{-1}(B)\in\mathscr{A} \iff A,B\in \mathscr{B}
+\tag{1} 
+\] 
+
+
+由$ \mathscr{A} $对并运算封闭:  
+\[ 
+f^{-1}(A),f^{-1}(B)\in\mathscr{A} \Rightarrow f^{-1}(A) \cap f^{-1}(B) \in\mathscr{A}
+\tag{2} 
+\]
+由逆运算与交集交换性(课本P40定理2.3.1(3)): $  f^{-1}(A \cap B)=f^{-1}(A) \cap f^{-1}(B)  $ , 结合(1)(2)可得：
+\[ 
+A,B\in \mathscr{B} \iff f^{-1}(A),f^{-1}(B)\in\mathscr{A} \Rightarrow f^{-1}(A) \cap f^{-1}(B)=f^{-1}(A \cap B) \in\mathscr{A}
+\]
+
+又由定义：
+\[ 
+A \cap B \in\mathscr{B} \iff f^{-1}(A \cap B) \in f^{-1}(\mathscr{B})
+\]
+得： 
+\[ 
+A,B\in \mathscr{B}  \Rightarrow A \cap B \in \mathscr{B}
+\]
+
+\subsection{第6题}
+解：\\
+设： \\
+\centerline{
+$ {\forall n}  $, $  \mathscr{F}_{1},\mathscr{F}_{2} \cdots \mathscr{F}_{n} $ 是$ \sigma $域}
+(1)\\
+显然：
+\[ \varnothing \in \mathscr{F}_{1} \cap \mathscr{F}_{2} \cdots \cap \mathscr{F}_{n} 
+\tag{a}
+\]
+由$ \sigma $域定义：
+\[ \Omega \in \mathscr{F}_{1}, \Omega \in \mathscr{F}_{2} \cdots \Omega \in \mathscr{F}_{n} 
+\]
+得：
+\[ \Omega \in \mathscr{F}_{1} \cap \mathscr{F}_{2} \cdots \cap \mathscr{F}_{n} 
+\tag{b}
+\]
+(2)\\
+设$ \forall A$ ：
+\[ \forall A \in \mathscr{F}_{1} \cap \mathscr{F}_{2} \cdots \cap \mathscr{F}_{n} \]
+得：
+\[ A \in \forall \mathscr{F}_{i}, i=1,2,\cdots,n \]
+由$ \sigma $域定义可得：
+ \[ A^{\mathrm{c}} \in \forall \mathscr{F}_{i}, i=1,2,\cdots,n \] 
+即
+\[ A^{\mathrm{c}} \in \mathscr{F}_{1} \cap \mathscr{F}_{2} \cdots \cap \mathscr{F}_{n}
+\tag{c}
+\]  
+(3)\\
+设：
+\[ A_{k} \in \mathscr{F}_{1} \cap \mathscr{F}_{2} \cdots \cap \mathscr{F}_{n}, k\geq 1
+\] 
+则：
+\[ \bigcup_{k} A_{k} \in \mathscr{F}_{1} , \bigcup_{k} A_{k} \in \mathscr{F}_{2}, \cdots \bigcup_{k} A_{k} \in \mathscr{F}_{n}, k\geq 1
+\] 
+可得：
+\[ \bigcup_{k} A_{k} \in \mathscr{F}_{1} \cap \mathscr{F}_{2} \cdots \cap \mathscr{F}_{n}, k\geq 1
+\tag{d}
+\] 
+由(a)(b)(c)(d)得证
+
+\subsection{第8题}
+解：\\ 
+\begin{shaded}
+	
+	其实$(b) \Rightarrow (a)$也又看到证明，$(c) \Rightarrow (a)$不一定对
+	
+\end{shaded}
+使用$ (a) \Rightarrow (b) \Rightarrow (c) \Rightarrow (a) $思路\\
+$ (a) \Rightarrow (b)$: \\
+显然，将n+1之后的集合都设为空集，便从可列可加性$\Rightarrow$有限可加\\
+现证下连续：\\
+设$\{ S_{n} \}$是$ \mathscr{F} $中一个单调不减的集序列，那么：
+\[ \bigcup_{i=1}^{\infty} S_{i}= \lim\limits_{n\to+\infty} S_{n} \]
+若定义$ S_{0}=\varnothing $，则
+\[ \bigcup_{i=1}^{\infty} S_{i}= \sum_{i=1}^{\infty} (S_{i}-S_{i-1}) \]
+这里的$ (S_{i} - S_{i-1}) , i=1,2,\cdots$由于$S_{i}$单调性，两两互不相容，因此由可列可加性得
+\[ \mathbb{P}(\bigcup_{i=1}^{\infty} S_{i}) = \sum_{i=1}^{\infty} \mathbb{P}(S_{i}-S_{i-1}) = \lim\limits_{n\to+\infty} \sum_{i=1}^{n} \mathbb{P}(S_{i}-S_{i-1}) \]
+又由
+\[ \sum_{i=1}^{n} \mathbb{P}(S_{i}-S_{i-1})= \mathbb{P}(\sum_{i=1}^{n} (S_{i}-S_{i-1})) = \mathbb{P}(S_{n})\]
+因此
+\[  \mathbb{P}(\lim\limits_{n\to+\infty} S_{n}) = \lim\limits_{n\to+\infty} \mathbb{P}(S_{n}) \]
+下连续性得证\\
+
+
+$ (b) \Rightarrow (c)$: \\
+下连续性$\Rightarrow$次可列可加：\\
+利用一般加法定理(容斥原理)
+\[ \mathbb{P}(\bigcup_{k=1}^{n} A_{k}) = \sum_{k=1}^{n} \mathbb{P}(A_{k})-\sum_{1 \leq i<j \leq n} \mathbb{P}((A_{i} \cap A_{j}) + \sum_{1 \leq i<j<k \leq n} \mathbb{P}((A_{i} \cap A_{j} \cap A_{k}) - \cdots + (-1)^{n-1}\mathbb{P}(A_{1} \cap \cdots \cap A_{n}) \]
+对n作数学归纳可得，对$\forall n \geq 1$有
+\[ \mathbb{P}(\bigcup_{k=1}^{n} A_{k}) \leq \sum_{k=1}^{n} \mathbb{P}(A_{k}) \]
+令$n\to +\infty$，根据下连续性可得
+\[ \mathbb{P}(\bigcup_{k=1}^{\infty} A_{k}) \leq \sum_{k=1}^{\infty} \mathbb{P}(A_{k}) \]
+
+
+$ (c) \Rightarrow (a)$: \\
+由条件可得$\mathbb{P}$首先是外测度，设$ \{A_{i}\} $是一列互不相交的可测集，由$\left( \Omega,\mathscr{F}\right)$是可测空间可得，$\bigcup_{i=1}^{\infty} A_{i}, A_{i} \in \mathscr{F} $是可测集，根据外测度性质，对$\forall T$
+
+%\begin{equation*}
+%	\begin{split}
+%	\mathbb{P}(T)  
+%	& = \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{n} A_{i} \right) \right] + \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{n} A_{i} \right)^\mathrm{c} \right] \\
+%	& \geq \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{n} A_{i} \right) \right] + \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{\infty} A_{i} \right)^\mathrm{c} \right]  \\
+%	& = \sum_{i=1}^{n} \mathbb{P}(T \cap A_{i}) + \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{\infty} A_{i} \right)^\mathrm{c} \right]	\\
+%	\end{split}
+%\end{equation*}
+
+
+\begin{align}
+	\mathbb{P}(T)  
+	& = \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{n} A_{i} \right) \right] + \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{n} A_{i} \right)^\mathrm{c} \right] \notag \\
+	& \geq \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{n} A_{i} \right) \right] + \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{\infty} A_{i} \right)^\mathrm{c} \right] \notag \\
+	& = \sum_{i=1}^{n} \mathbb{P}(T \cap A_{i}) + \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{\infty} A_{i} \right)^\mathrm{c} \right]	\tag{*}
+\end{align}
+其中(*)用到了有限可加性，令$n \to \infty$得
+\[ \mathbb{P}(T) \geq \sum_{i=1}^{\infty} \mathbb{P}(T \cap A_{i}) + \mathbb{P}\left[ T \cap \left( \bigcup_{i=1}^{\infty} A_{i} \right)^\mathrm{c} \right] \tag{**}\]
+在(**)中，令$T=\bigcup_{i=1}^{\infty} A_{i}$，这时由于$ (\bigcup_{i=1}^{\infty} A_{i} \cap A_{i}=A_{i}) $，便得
+\[ 
+\mathbb{P}(\bigcup_{i=1}^{\infty} A_{i}) \geq \sum_{i=1}^{\infty} \mathbb{P}(A_{i})
+\]
+另一方面由次可列可加性
+\[ \mathbb{P}(\bigcup_{k=1}^{\infty} A_{k}) \leq \sum_{k=1}^{\infty} \mathbb{P}(A_{k}) \]
+最终可得可列可加性
+
+\subsection{第10题}
+解：\\ 
+由$ A \cap B \subset B  $以及概率单调性，得出   $ \mathbb{P}(A \cap B) \leq 1/3 $ \\
+再由$ 1 \geq \mathbb{P}(A \cup B)=\mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B) $, 得$\mathbb{P}(A \cup B) \geq 1/12$
+
+
+\subsection{第12题}
+解：\\ 
+用数学归纳法证明:\\
+当$n=2$时， $ \mathbb{P}(A_{1} \cup A_{2})=\mathbb{P}(A_{1}) + \mathbb{P}(A_{2}) - \mathbb{P}((A_{1} \cap A_{2})  $ , 显然成立：$ \mathbb{P}(A_{1} \cup A_{2}) \geq \mathbb{P}(A_{1}) + \mathbb{P}(A_{2}) - \mathbb{P}((A_{1} \cap A_{2})  $ \\
+设当$n=k-1$时，\[ \mathbb{P}(\bigcup_{i=1}^{k-1} A_{i}) \geq \sum_{i=1}^{k-1} \mathbb{P}(A_{i})-\sum_{i<j \leq k-1} \mathbb{P}((A_{i} \cap A_{j}) \]
+当$n=k$时,
+\[ 
+\mathbb{P}(\bigcup_{i=1}^{k} A_{i})=\mathbb{P}((\bigcup_{i=1}^{k-1} A_{i}) \cup A_{k})=\mathbb{P}(\bigcup_{i=1}^{k-1} A_{i})+\mathbb{P}(A_{k})-\mathbb{P}(\bigcup_{i=1}^{k-1} A_{i} \cap A_{k})
+\tag{1}
+\]
+其中，利用$n=k-1$假设，
+\[ \mathbb{P}(\bigcup_{i=1}^{k-1} A_{i}) \geq \sum_{i=1}^{k-1} \mathbb{P}(A_{i})-\sum_{i<j \leq k-1} \mathbb{P}((A_{i} \cap A_{j}) 
+\tag{2}
+\]
+使用概率分配率和次可加性
+\[ \mathbb{P}(\bigcup_{i=1}^{k-1} A_{i} \cap A_{k}) = \mathbb{P}(\bigcup_{i=1}^{k-1} (A_{i} \cap A_{k}) \leq \sum_{i=1}^{k-1}\mathbb{P}(A_{i} \cap A_{k}) 
+\tag{3}
+\] 
+将(2)(3)代入(1)便得证
+\[ \mathbb{P}(\bigcup_{i=1}^{k} A_{i}) \geq \sum_{i=1}^{k} \mathbb{P}(A_{i})-\sum_{i<j \leq k} \mathbb{P}((A_{i} \cap A_{j}) \]
+
+
+\subsection{第20题}
+解：\\ 
+\begin{shaded}
+	
+	这题前半小题有点麻烦，要证明连续分布函数F可测(可测函数为啥是随机变量李贤平P158具体不清楚)\\
+	PS:好像记忆中甚至可以不用连续这一条件，可测还是比连续要弱一点的
+	
+\end{shaded}
+(1)证明$F(x)$是可测函数(一元Borel函数)，即$F(\xi)$是随机变量\\
+对$ \forall a$, 记 $E = \{x \in \mathbb{R} \colon F(x)>a \}  $ \\
+现在证明E是开集：$ \forall x_{0} \in E$，则$F(x_{0})>a$ 由于$F(x)$在$x_{0}$处连续，$ \exists \delta>0$，使得$x \in U(x_{0}, \delta)$时，$F(x)>a$，即$x_{0}$是内点，E是开集，当$a \geq 1$或$a \leq 0$时，E分别是$\varnothing$和$\mathbb{R}$也都为开集，开集是可测集，因此$F(x)$是可测函数，故$F(\xi)$是随机变量。\\
+
+(2)证明$[0,1]$均匀分布,连续单调函数有逆函数\\
+$Y=F(\xi)$分布：$\mathbb{P}(Y \leq y)=\mathbb{P}(F(\xi) \leq y)=\mathbb{P}(\xi \leq F^{-1}(y))=F(F^{-1}(y))=y$，因此是$[0,1]$均匀分布
+
+
+\subsection{第21题}
+解：\\ 
+\begin{shaded}
+	
+	这题也麻烦，广义逆(教材P97)
+	
+\end{shaded}
+
+(1)至少存在中点\\
+广义逆定义：
+\[ F^{-1}(x) \triangleq inf \{ y \colon F(y) \geq x \} \]
+反证法，取$m=F^{-1}(\frac{1}{2})$，若$ \mathbb{P}(\xi < m)>\frac{1}{2} $，由$F^{-1}$左连续性，$\exists m_{0}$使 $ \mathbb{P}(\xi \leq m_{0})\geq \frac{1}{2} $，与m是下确界矛盾
+
+
+(2)中点集合闭区间\\
+首先不会出现中点集合为多段区间情况(否则与概率单调不减矛盾)，反证法，不妨设中点区间为$(a,b]$，则\\
+\[ \exists N, n>N, \mathbb{P}(\xi < a+\frac{1}{n})\leq \frac{1}{2}\leq \mathbb{P}(\xi \leq a+\frac{1}{n}) \]
+上式两边取极限$n \to +\infty $，${\xi < a+\frac{1}{n}}$为单调递减集合，由概率上连续性得
+\[ \mathbb{P}(\xi < a)\leq \frac{1}{2}\leq \mathbb{P}(\xi \leq a) \]
+此时a符合中点定义，即与中点集合为(a,b]矛盾
+
+
+\subsection{第23题}
+解：\\ 
+\begin{shaded}
+	
+	思路是利用概率减法性质把两个概率相减变为一个
+	
+\end{shaded}
+
+不妨设 $\mathbb{P}(\xi \in I) \geq \mathbb{P}(\eta \in I) $，则
+\begin{equation*}
+	\begin{split}
+		  \mathbb{P}(\xi \in I)-\mathbb{P}(\eta \in I)  
+		 & \leq \mathbb{P}(\xi \in I)-\mathbb{P}(\eta \in I, \xi \in I) \\
+		 & =\mathbb{P}(\eta \in I, \xi \notin I)  \\
+		 & \leq \mathbb{P}(\eta \neq \xi )	 
+	\end{split}
+\end{equation*}
+
+\subsection{第24题}
+解：\\ 
+
+(1)联合连续$\Rightarrow$边缘连续：\\
+联合分布连续$\Rightarrow$每个分量连续，则显然$F(x, +\infty)$和$F(+\infty,y)$连续 \\
+
+(2)边缘连续$\Rightarrow$联合连续\\
+边缘连续，则$\forall x_{0}, \forall \varepsilon, \exists \delta>0$，使得当$\left| x-x_{0} \right|<\delta$时，有$\left| F_{\xi}(x)-F_{\xi}(x_{0}) \right|<\varepsilon$和$\left| F_{\eta}(x)-F_{\eta}(x_{0}) \right|<\varepsilon$ \\
+$\Rightarrow$对于$\forall x_{0},y_{0}$，满足$\left| x-x_{0} \right|<\delta, \left| y-y_{0} \right|<\delta$时，有\\
+
+\begin{equation*}
+	\begin{split}
+	\left| F(x,y)-F(x_{0},y_{0}) \right|  
+	& \leq \left| F(x,y)-F(x_{0},y) \right| + \left| F(x_{0},y)-F(x_{0},y_{0}) \right| \\
+	& =\mathbb{P}(min(x,x_{0})<\xi \leq max(x,x_{0}), \eta \leq y) +  \mathbb{P}(min(y,y_{0})<\eta \leq max(y,y_{0}), \xi \leq x_{0}) \\
+	& \leq \mathbb{P}(min(x,x_{0})<\xi \leq max(x,x_{0}), \eta \leq +\infty) +  \mathbb{P}(min(y,y_{0})<\eta \leq max(y,y_{0}), \xi \leq +\infty)	\\
+	& = \left| F_{\xi}(x)-F_{\xi}(x_{0}) \right| + \left| F_{\eta}(x)-F_{\eta}(x_{0}) \right| < 2\varepsilon
+	\end{split}
+\end{equation*}
+
+\end{document} 
