@@ -1,0 +1,198 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amssymb}
+\usepackage{ctex}
+\usepackage{amsmath,ntheorem,lmodern,bm}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+\usepackage{color,framed}
+%\usepackage{hyperref}
+%\setCJKmainfont[BoldFont={FZHei-B01}]{FZShuSong-Z01}
+%\setCJKfamilyfont{song}{FZShuSong-Z01}
+%\setCJKfamilyfont{hei}{FZShuSong-Z01}
+%\setCJKfamilyfont{heiti}{FZShuSong-Z01}
+%\setCJKfamilyfont{heilight}{FZShuSong-Z01}
+%\setCJKfamilyfont{title}{FZShuSong-Z01}
+%\setCJKfamilyfont{songbold}{FZShuSong-Z01}
+%\hypersetup{pdfpagemode=FullScreen}
+\colorlet{shadecolor}{gray!10}
+\geometry{a4paper,left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+\usepackage{ifxetex,ifluatex}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+    \newcommand{\euro}{€}
+  \else
+    \usepackage[utf8]{inputenc}
+    \usepackage{eurosym}
+  \fi
+\fi
+\usepackage{color}
+\usepackage{fancyvrb}
+%\DefineShortVerb[commandchars=\\\{\}]{\|}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{\begin{shaded}
+}{\end{shaded}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex,
+              colorlinks=true,
+              linkcolor=blue]{hyperref}
+\else
+  \usepackage[unicode=true,
+              colorlinks=true,
+              linkcolor=blue]{hyperref}
+\fi
+\hypersetup{breaklinks=true, pdfborder={0 0 0}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%\EndDefineVerbatimEnvironment{Highlighting}
+\newcommand{\code}[1]{\ \tcbox[on line,
+arc=3pt,outer arc=3pt,colback=pink!30,
+boxsep=0pt,left=3pt,right=3pt,top=3pt,bottom=3pt,
+boxrule=0pt]{\ttfamily\color{purple}{#1}}\ }
+
+%\title{概率论第一次作业}
+%\date{\today}
+
+\begin{document}
+
+
+%\section{\LaTeX 直播之七  - 数学公式入门基础配套资料}\label{latex-ux516cux5f0f}
+
+%\section{\centerline {概率论第一次作业}}
+%\section{\centerline{概率论第一次作业}}
+%\section{概率论第一次作业}
+{\centering\section*{概率论第二次作业}}
+%{\centering\section*{Advanced Statistical Learning}}
+%\subsection{版本号: V1.6.6}\label{ux7248ux672cux53f7-v1.6.6}
+%
+%\textbf{编者} \\
+%\subsection
+\begin{flushright}
+	\Large {\text{黄之豪}} \\
+	\Large {\text{20110980005}} \\
+	\Large {\text{Oct 28th, 2020}} \\
+\end{flushright}
+
+
+%\textbf{编者} \\
+%中山大学\ 易鹏\ \\
+%华南理工大学\ 关舒文
+\subsection{P66 18}
+设 $ A=\{ \mbox{第k张是前k张中最大的} \} $，\ $ B=\{ \mbox{第k张是m} \} $, 显然B发生一定能推出A发生 \\
+$ \mathbb{P}(A): $ 从m中随机抽k个，第k个位置放置最大数，前k-1个位置随意放置(排列)。$ \mathbb{P}(B): $ 从m-1中随机抽k-1个，第k个位置放置m，前k-1个位置随意放置(排列)。
+$$ \mathbb{P}(B|A)=\frac{\mathbb{P}(AB)}{\mathbb{P}(A)}=\frac{\mathbb{P}(B)}{\mathbb{P}(A)}=\frac{\frac{{m-1 \choose k-1} (k-1)!}{{m \choose k} k!}}{\frac{{m \choose k} (k-1)!}{{m \choose k} k!}}=\frac{k}{m} 
+$$ 
+
+
+
+
+\subsection{P66 20}
+两独立Possion分布随机变量之和也服从Possion分布且参数为两者之和
+\begin{align}
+	\mathbb{P}(\xi_1+\xi_2=n)
+	& = \sum_{k=0}^{n}\mathbb{P}(\xi_1=k)\mathbb{P}(\xi_1+\xi_2=n | \xi_1=k) \notag \\
+	& = \sum_{k=0}^{n}\mathbb{P}(\xi_1=k)\mathbb{P}(\xi_2=n-k) \notag \\
+	& = \sum_{k=0}^{n} \frac{\lambda_1^k}{k!}e^{-\lambda_1} \frac{\lambda_2^{n-k}}{(n-k)!}e^{-\lambda_2} \notag \\
+	& = e^{-(\lambda_1+\lambda_2)}\sum_{k=0}^{n} \frac{\lambda_1^k \lambda_2^{n-k}}{k!(n-k)!} \notag \\
+	& = e^{-(\lambda_1+\lambda_2)}\sum_{k=0}^{n} \frac{{n \choose k} \lambda_1^k \lambda_2^{n-k}}{n!} \notag \\
+	& = e^{-(\lambda_1+\lambda_2)} \frac{(\lambda_1+\lambda_2)^n}{n!} \notag 
+\end{align}
+
+$$ \mathbb{P}(\xi_1=k | \xi_1+\xi_2=n)=\frac{\mathbb{P}(\xi_1=k , \xi_1+\xi_2=n)}{\mathbb{P}(\xi_1+\xi_2=n)}=\frac{\mathbb{P}(\xi_1=k)\mathbb{P}(\xi_1+\xi_2=n)}{\mathbb{P}(\xi_1+\xi_2=n)}=\frac{{n \choose k} \lambda_1^k \lambda_2^{n-k}}{(\lambda_1 + \lambda_2)^n} $$
+
+
+
+\subsection{P67 24}
+起始状态(状态A)：白白白  黑黑黑 \\
+第二步状态(状态B)： 白白黑 黑黑白 \\
+
+从上面可以发现，状态B除非同时抽到唯一的黑和唯一的白做交换会回到状态A(概率值为1/3 * 1/3 = 1/9)，否则其余情况都是回到状态B(最终只关心颜色一致，并不关心一致的颜色在哪个盒子)
+
+转移概率矩阵T为：
+\[ 
+\begin{array}{ccc}
+  & A & B\\\\
+A & 0 & 1\\\\
+B & 1/9 & 8/9\\\\
+\end{array} 
+\] 
+n次之后仍然颜色相同，也即n次之后回到状态A的概率，这一概率值其实是转移矩阵n次幂之后位于(1,1)位置(矩阵的左上角)的数\\
+$ {\begin{pmatrix} 0&1\\ \frac{1}{9}& \frac{8}{9} \end{pmatrix}}^n $ 求解则可通过特征分解方法\\
+$ {\begin{pmatrix} 0&1\\ \frac{1}{9}& \frac{8}{9} \end{pmatrix}} $ 的特征值为 $\lambda_1=1, \lambda_2=-\frac{1}{9}$ , 对应特征向量为   $ \xi_1={\left(\begin{array}{cc} 1 & 1  \end{array} \right)}^T $，$ \xi_2={\left(\begin{array}{cc} -9 & 1  \end{array} \right)}^T $
+
+\[ T^n=
+\left(
+\begin{array}{cc}
+1 & -9 \\
+1 & 1
+\end{array}
+\right)
+{\begin{pmatrix} 1&0\\ 0& -\frac{1}{9} \end{pmatrix}}^n
+\left(
+\begin{array}{cc}
+\frac{1}{10} & \frac{9}{10} \\
+-\frac{1}{10} & \frac{1}{10}
+\end{array}
+\right) = \left(
+\begin{array}{cc}
+\frac{1}{10}+\frac{9}{10}(-\frac{1}{10})^n & * \\
+* & *
+\end{array}
+\right)
+ \]
+因此n次之后颜色仍然相同概率为 $ \frac{1}{10}+\frac{9}{10}(-\frac{1}{10})^n $
+
+
+\subsection{P67 26}
+掷两个骰子共有6*6=36种可能，和为7的概率为6/36；和为11的概率2/36；和为2，3，12的概率1/36，2/36，1/36；和为6，8的概率都为5/36；和为5，9的概率都为4/36；和为4，10的概率都为3/36 \\
+
+
+\begin{align}
+\mathbb{P}(win)
+& = \frac{2}{9} \tag{1} \\
+& + 2 \times \frac{5}{36}(\frac{5}{36}+\frac{25}{36}\times\frac{5}{36}+\frac{25}{36}\times\frac{25}{36}\times\frac{5}{36}+ \cdots) \tag{2} \\
+& + 2 \times \frac{4}{36}(\frac{4}{36}+\frac{26}{36}\times\frac{4}{36}+\frac{26}{36}\times\frac{26}{36}\times\frac{4}{36}+ \cdots) \tag{3} \\
+& + 2 \times \frac{3}{36}(\frac{3}{36}+\frac{27}{36}\times\frac{3}{36}+\frac{27}{36}\times\frac{27}{36}\times\frac{3}{36}+ \cdots) \tag{4} \\
+& = \frac{2}{9}+\frac{10}{36}\times\frac{5}{36}\times\frac{1}{1-\frac{25}{36}} + \frac{8}{36}\times\frac{4}{36}\times\frac{1}{1-\frac{26}{36}}+\frac{6}{36}\times\frac{3}{36}\times\frac{1}{1-\frac{27}{36}} \notag \\
+& = \frac{244}{495} \notag
+\end{align}
+
+分析：上式(1)代表第一次就赢(即掷到7，11)概率为8/36=2/9，上式(2)代表第一次和为6或8，进入下一次投掷，比如第一次和为6，第二次投掷5/36的概率赢，1-5/36-6/36=25/36的概率进入第三轮投掷，一直持续下去，同理，上式(3)代表第一次和为5或9，上式(4)代表第一次和为4或10，最终得到赌徒获胜概率为244/495。
+
+
+
+
+\end{document} 
